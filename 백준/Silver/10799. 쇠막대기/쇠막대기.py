@@ -1,17 +1,18 @@
 import sys
-data=sys.stdin.readline().strip()
-stack=[]
-result=0
+input=sys.stdin.readline
 
-for i in range(len(data)):
-    if data[i]=='(':
-        stack.append(data[i])
-    else: 
-        if data[i-1]=='(': #레이저 만나면 스택크기만큼 조각잘려짐 
+stack=[]
+res=0
+x=input().strip()
+for i in range(len(x)):
+    if x[i] =='(':
+        stack.append(x[i])
+    else:
+        if x[i-1]=='(':
             stack.pop()
-            result+=len(stack)
-        else: # 쇠막대기 끝 한조각 추가  
+            res+=len(stack)
+        else:
             stack.pop()
-            result+=1
-            
-print(result)
+            res+=1
+
+print(res)
