@@ -1,15 +1,14 @@
 import sys
+input=sys.stdin.readline
 from collections import deque
-#que 대신 deque 사용하기 
-n, k = map(int, sys.stdin.readline().split())
+n,k =map(int, input().split())
+queue=deque()
+for i in range(1,n+1): queue.append(i)
+res=[]
 
-people=deque()
-for i in range(1,n+1): people.append(i)
-result=[]
-
-while people:
+while queue:
     for _ in range(k-1):
-        people.append(people.popleft())
-    result.append(people.popleft())
+        queue.append(queue.popleft())
+    res.append(queue.popleft())
 
-print(str(result).replace('[', '<').replace(']', '>'))
+print(str(res). replace('[', '<'). replace(']', '>'))
