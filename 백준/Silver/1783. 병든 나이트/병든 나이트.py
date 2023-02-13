@@ -1,7 +1,7 @@
-from sys import stdin
+import sys
+input=sys.stdin.readline
 
-n,m = map(int, stdin.readline().split())
-
+n, m=map(int, input().split())
 if n == 1:
     print(1)
 elif n == 2:
