@@ -1,14 +1,16 @@
 import sys
 from collections import deque
-input = sys.stdin.readline
+input=sys.stdin.readline
 
 n,m,v=map(int, input().split())
 
 graph=[[] for _ in range(n+1)]
+
 for _ in range(m):
-    a,b=map(int, input().split())
+    a,b=map(int,input().split())
     graph[a].append(b)
     graph[b].append(a)
+
 
 for i in range(1,n+1):
     graph[i].sort()
@@ -36,4 +38,4 @@ def bfs(graph, u, bfsvisited):
 
 dfs(graph,v,dfsvisited)
 print()
-bfs(graph, v, bfsvisited)
+bfs(graph,v,bfsvisited)
