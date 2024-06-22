@@ -1,1 +1,1 @@
-# SW-Maestro-154algorithm
+# Algoritm Study(Baekjoon, Programmers)
