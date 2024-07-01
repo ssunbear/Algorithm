@@ -1,0 +1,5 @@
+n,k=map(int, input().split())
+data=list(map(int, input().split()))
+dic=[[data[i], bin(data[i])[2:].count("1")] for i in range(n)]
+dic.sort(key=lambda x:[-x[1], -x[0]])
+print(dic[k-1][0])
