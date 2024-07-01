@@ -1,0 +1,11 @@
+n=int(input())
+dic=[list(map(int,input().split())) for _ in range(n)]
+dic.sort(key=lambda x:(x[1],x[0]))
+
+cnt,end=0,-1
+for s,e in dic:
+	if s>end:
+		cnt+=1
+		end=e
+		
+print(cnt)
