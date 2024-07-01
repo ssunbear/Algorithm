@@ -1,0 +1,7 @@
+# -*- coding: utf-8 -*-
+# UTF-8 encoding when using korean
+user_input = int(input())
+total=0
+for i in range(1,user_input+1):
+	total+=i*i
+print (total)
