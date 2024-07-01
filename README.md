@@ -1,1 +1,1 @@
-# Algorithm Study(Baekjoon, Programmers, goormlevel)
+# Algorithm Study(Baekjoon, Programmers, Goormlevel)
