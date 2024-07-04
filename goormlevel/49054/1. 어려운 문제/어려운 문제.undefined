@@ -1,0 +1,12 @@
+import math
+n=int(input()) 
+a=list(str(math.factorial(n)))
+
+while True:
+	tot=0
+	for i in a:
+		tot+=int(i)
+	if tot<10:
+		print(tot)
+		break
+	a=str(tot)
