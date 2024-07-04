@@ -1,0 +1,6 @@
+n,m=map(int, input().split())
+salt=0.07*n
+total=n+m
+saltpercent=(salt/total)*100
+saltpercent=str(saltpercent)[0:4]
+print(saltpercent)
