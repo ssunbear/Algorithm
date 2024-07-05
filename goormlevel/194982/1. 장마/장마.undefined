@@ -1,0 +1,16 @@
+n,m=map(int, input().split())
+k=list(map(int,input().split()))
+check=set()
+for i in range(m):
+	s,e=map(int, input().split())
+	for j in range(s-1,e):
+		k[j]+=1
+		check.add(j)
+	
+	if i%3==2:
+		for idx in check:
+			k[idx]-=1
+		check=set()
+
+for i in k:
+	print(i,end=' ')
