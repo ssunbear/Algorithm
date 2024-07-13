@@ -15,11 +15,10 @@ def solution(e, starts):
     #약수 개수 많은 순서로 정렬하기
     arr.sort(key=lambda x:(-x[1]))
     
-    
-    for i in starts:
-        for y in arr:
-            if i<=y[0]:
-                answer.append(y[0])
+    for i in range(len(starts)):
+        for j in range(len(arr)):
+            if starts[i]<=arr[j][0]:
+                answer.append(arr[j][0])
                 break
     
     return answer
