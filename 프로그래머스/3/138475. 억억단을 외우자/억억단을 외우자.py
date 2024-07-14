@@ -1,4 +1,5 @@
 dp=[0]*5000001
+#
 def solution(e, starts):
     
     #약수의 개수 만큼 채우기 -> 계속 90점 떠서 검색함 : https://inspirer9.tistory.com/436
