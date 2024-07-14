@@ -10,11 +10,12 @@ def mul(a,b):
 
 def div(x,n): 
     if n == 1: return x
-    D=div(x,n//2)
     if n % 2 == 0:
+        D=div(x,n//2)
         return mul(D,D) 
     else:
-        return mul(mul(D,D),x)
+        D2=div(x,n-1)
+        return mul(D2,x)
 
 t = int(input())
 for i in range(1,t+1):
