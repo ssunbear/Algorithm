@@ -4,8 +4,7 @@ from collections import deque
 
 n=int(input())
 graph=[list(map(int, input().strip())) for _ in range(n)]
-visited=[[False for _ in range(n)] for _ in range(n)]
-house=[]
+answer=[]
 
 dx=[-1,1,0,0]
 dy=[0,0,-1,1]
@@ -33,9 +32,9 @@ def bfs(x,y):
 for i in range(n):
     for j in range(n):
         if graph[i][j]==1:
-            house.append(bfs(i,j))
+            answer.append(bfs(i,j))
 
-print(len(house))
-house.sort()
-for i in house:
+print(len(answer))
+answer.sort()
+for i in answer:
     print(i)
