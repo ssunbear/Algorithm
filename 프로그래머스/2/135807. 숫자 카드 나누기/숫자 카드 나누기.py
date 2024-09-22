@@ -1,25 +1,26 @@
 import math
-from functools import reduce
+# 시간 초과 ..
+def get_max_answer(arrayA, arrayB):
+    min_num = min(arrayA)
 
-def can_divide_all(gcd, array):
-    return all(x % gcd == 0 for x in array)
+    for i in range(1, min_num // 2 + 1):
+        if min_num / i < 1:
+            break
+        if min_num % i == 0:
+            cri_num = min_num // i
+            flag_fail = False
 
-def cannot_divide_any(gcd, array):
-    return any(x % gcd == 0 for x in array)
+            for j in range(len(arrayA)):
+                if arrayA[j] % cri_num != 0 or arrayB[j] % cri_num == 0:
+                    flag_fail = True
+                    break
+
+            if not flag_fail:
+                return cri_num
+
+    return 0
 
 def solution(arrayA, arrayB):
-    # 철수와 영희의 카드에 대한 최대 공약수 계산
-    A_gcd = reduce(math.gcd, arrayA)
-    B_gcd = reduce(math.gcd, arrayB)
+    return max(get_max_answer(arrayA, arrayB), get_max_answer(arrayB, arrayA))
 
-    answer = []
-    
-    # 조건 1: A_gcd가 B의 모든 숫자를 나누지 않아야 함
-    if not can_divide_all(A_gcd, arrayB) and not cannot_divide_any(A_gcd, arrayB):
-        answer.append(A_gcd)
-    # 조건 2: B_gcd가 A의 모든 숫자를 나누지 않아야 함
-    if not cannot_divide_any(B_gcd, arrayA) and not can_divide_all(B_gcd, arrayA):
-        answer.append(B_gcd)
-        
-    # 결과 반환
-    return max(answer) if answer else 0
+print(solution([10, 17], [5, 20]))
