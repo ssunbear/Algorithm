@@ -17,10 +17,9 @@ def solution(arrayA, arrayB):
     # 조건 1: A_gcd가 B의 모든 숫자를 나누지 않아야 함
     if not can_divide_all(A_gcd, arrayB) and not cannot_divide_any(A_gcd, arrayB):
         answer.append(A_gcd)
-    
+    # 조건 2: B_gcd가 A의 모든 숫자를 나누지 않아야 함
     if not cannot_divide_any(B_gcd, arrayA) and not can_divide_all(B_gcd, arrayA):
         answer.append(B_gcd)
         
-
     # 결과 반환
     return max(answer) if answer else 0
