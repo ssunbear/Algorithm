@@ -16,14 +16,13 @@ def convert_to_base(n, k):
     return ''.join(map(str, digits[::-1]))
 
 def count_primes_in_base(n, k):
-    # Step 1: 진법 변환
+    # Step 1: Convert n to base k
     base_k = convert_to_base(n, k)
     
-    # Step 2: 0으로 나누기
+    # Step 2: Split the base_k number by '0'
     parts = base_k.split('0')
     
-    print(parts)
-    # Step 3: 소수 세기
+    # Step 3: Find primes according to the conditions
     prime_count = 0
     
     # Check each part and its neighbors
@@ -37,23 +36,24 @@ def count_primes_in_base(n, k):
             prime_count += 1
         
         # Check for the case of 0P0 (i-1 and i+1 must exist)
-        #if i > 0 and i < len(parts) - 1 and parts[i-1] == '' and parts[i+1] == '':
-        #    if is_prime(num):
-        #        prime_count += 1
+        if i > 0 and i < len(parts) - 1 and parts[i-1] == '' and parts[i+1] == '':
+            if is_prime(num):
+                prime_count += 1
         
         # Check for the case of P0 (i-1 must be empty)
-        #if i > 0 and parts[i-1] == '':
-        #    if is_prime(num):
-        #        prime_count += 1
+        if i > 0 and parts[i-1] == '':
+            if is_prime(num):
+                prime_count += 1
         
         # Check for the case of 0P (i+1 must be empty)
-        #if i < len(parts) - 1 and parts[i+1] == '':
-        #    if is_prime(num):
-        #        prime_count += 1
+        if i < len(parts) - 1 and parts[i+1] == '':
+            if is_prime(num):
+                prime_count += 1
 
     return prime_count
 
 def solution(n, k):
     return count_primes_in_base(n, k)
 
-
+# 예시 입력
+print(solution(437674, 3))  # 출력: 3
