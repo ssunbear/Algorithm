@@ -1,15 +1,15 @@
 import sys
 input=sys.stdin.readline
-from itertools import combinations
+N = int(input().strip())            
+x=[]
+for i in range(N):
+    x.append(int(input().strip()))
 
-n=int(input())
-data=[]
-for i in range(n):
-    data.append(int(input()))
-data.sort(reverse=True)
-
-for i in range(n-2):
-    if data[i]<data[i+1]+data[i+2]:
-        print(data[i]+data[i+1]+data[i+2])
+x.sort(reverse=True)
+answer=-1
+for i in range(N-2):
+    if x[i] < x[i+1] + x[i+2]:
+        answer=sum(x[i:i+3])
         break
-else: print(-1)
+
+print(answer)
